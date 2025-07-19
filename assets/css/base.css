@@ -1,0 +1,192 @@
+/* Material You Design System Variables - Blue Theme with Dark Mode Support */
+:root {
+    /* Light Theme Colors */
+    --md-primary: #1976d2;
+    --md-primary-container: #d1e7ff;
+    --md-on-primary: #ffffff;
+    --md-on-primary-container: #001b3e;
+    
+    --md-secondary: #4285f4;
+    --md-secondary-container: #d8e9ff;
+    --md-on-secondary: #ffffff;
+    --md-on-secondary-container: #001225;
+    
+    --md-tertiary: #0277bd;
+    --md-tertiary-container: #cce7ff;
+    --md-on-tertiary: #ffffff;
+    --md-on-tertiary-container: #001e2f;
+    
+    --md-surface: #f8fbff;
+    --md-surface-variant: #e8f4ff;
+    --md-surface-container: #eff6ff;
+    --md-surface-container-high: #e3f2fd;
+    --md-surface-container-highest: #dbeafe;
+    --md-on-surface: #0f1419;
+    --md-on-surface-variant: #42474e;
+    
+    --md-background: #f8fbff;
+    --md-on-background: #0f1419;
+    
+    --md-outline: #6b7280;
+    --md-outline-variant: #cbd5e0;
+    
+    /* Blue Gradients */
+    --gradient-primary: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #03a9f4 100%);
+    --gradient-secondary: linear-gradient(135deg, #4285f4 0%, #1e88e5 50%, #1976d2 100%);
+    --gradient-surface: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(25, 118, 210, 0.05) 100%);
+    
+    /* Material You Elevations with Blue Tint */
+    --md-elevation-1: 0px 1px 2px 0px rgba(25, 118, 210, 0.15), 0px 1px 3px 1px rgba(25, 118, 210, 0.1);
+    --md-elevation-2: 0px 1px 2px 0px rgba(25, 118, 210, 0.15), 0px 2px 6px 2px rgba(25, 118, 210, 0.1);
+    --md-elevation-3: 0px 1px 3px 0px rgba(25, 118, 210, 0.15), 0px 4px 8px 3px rgba(25, 118, 210, 0.1);
+    --md-elevation-4: 0px 2px 3px 0px rgba(25, 118, 210, 0.15), 0px 6px 10px 4px rgba(25, 118, 210, 0.1);
+    --md-elevation-5: 0px 4px 4px 0px rgba(25, 118, 210, 0.15), 0px 8px 12px 6px rgba(25, 118, 210, 0.1);
+    
+    /* Motion Tokens */
+    --motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+    --motion-easing-decelerated: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+    --motion-easing-accelerated: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+    --motion-easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --motion-duration-short1: 50ms;
+    --motion-duration-short2: 100ms;
+    --motion-duration-medium1: 250ms;
+    --motion-duration-medium2: 300ms;
+    --motion-duration-long1: 400ms;
+    --motion-duration-long2: 500ms;
+    --motion-duration-smooth: 800ms;
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+    --md-primary: #4fc3f7;
+    --md-primary-container: #004b73;
+    --md-on-primary: #003047;
+    --md-on-primary-container: #d1e7ff;
+    
+    --md-secondary: #81c4fd;
+    --md-secondary-container: #003353;
+    --md-on-secondary: #002538;
+    --md-on-secondary-container: #d8e9ff;
+    
+    --md-tertiary: #4dd0e1;
+    --md-tertiary-container: #004d61;
+    --md-on-tertiary: #00363f;
+    --md-on-tertiary-container: #cce7ff;
+    
+    --md-surface: #0f1419;
+    --md-surface-variant: #42474e;
+    --md-surface-container: #1a1f25;
+    --md-surface-container-high: #252a30;
+    --md-surface-container-highest: #30353b;
+    --md-on-surface: #e4e7ec;
+    --md-on-surface-variant: #c2c7cf;
+    
+    --md-background: #0f1419;
+    --md-on-background: #e4e7ec;
+    
+    --md-outline: #8c9199;
+    --md-outline-variant: #42474e;
+    
+    /* Dark theme specific gradients */
+    --gradient-primary: linear-gradient(135deg, #4fc3f7 0%, #29b6f6 50%, #03a9f4 100%);
+    --gradient-secondary: linear-gradient(135deg, #81c4fd 0%, #42a5f5 50%, #2196f3 100%);
+    --gradient-surface: linear-gradient(135deg, #0f1419 0%, #1a1f25 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(79, 195, 247, 0.05) 100%);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--md-background);
+    color: var(--md-on-background);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--motion-duration-medium2) var(--motion-easing-standard),
+                color var(--motion-duration-medium2) var(--motion-easing-standard);
+}
+
+/* Ensure dark theme transitions work properly */
+* {
+    transition: background-color var(--motion-duration-medium1) ease,
+                color var(--motion-duration-medium1) ease,
+                border-color var(--motion-duration-medium1) ease;
+}
+
+/* Typography Scale */
+h1, .hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+h2, .section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--md-on-background) 0%, var(--md-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h3, .feature-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--md-on-surface);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--md-on-surface-variant);
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(25, 118, 210, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(33, 150, 243, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(3, 169, 244, 0.08) 0%, transparent 50%);
+    animation: backgroundFloat 20s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --md-outline: #000000;
+        --md-outline-variant: #333333;
+    }
+}
