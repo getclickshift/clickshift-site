@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickShift - Static Scalable Logo Concepts</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 2rem;
+            color: #1e293b;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .logo-card {
+            background: #f8fbff;
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid #e5e7eb;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+        
+        .logo-display {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .logo-title {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1e293b;
+            font-size: 1.25rem;
+        }
+        
+        .logo-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* Logo 1 - Shift Arrow Mark */
+        .logo-shift-arrow {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .shift-arrow-icon {
+            width: 48px;
+            height: 48px;
+            position: relative;
+        }
+        
+        .arrow-box {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .arrow-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .arrow-symbol::before {
+            content: '⇧';
+            display: block;
+        }
+        
+        .shift-arrow-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+        
+        /* Logo 2 - Bracket Transform */
+        .logo-bracket {
+            font-size: 2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .bracket-left {
+            color: #ef4444;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .bracket-content {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+        
+        .bracket-click {
+            color: #64748b;
+            text-decoration: line-through;
+            text-decoration-thickness: 3px;
+            text-decoration-color: #ef4444;
+            opacity: 0.7;
+        }
+        
+        .bracket-shift {
+            color: #3b82f6;
+        }
+        
+        .bracket-right {
+            color: #10b981;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        /* Logo 3 - Efficiency Graph */
+        .logo-graph {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .graph-icon {
+            width: 56px;
+            height: 56px;
+            position: relative;
+        }
+        
+        .graph-chart {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            padding: 8px;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+        
+        .graph-bar {
+            flex: 1;
+            background: #ef4444;
+            border-radius: 2px 2px 0 0;
+        }
+        
+        .graph-bar:nth-child(1) { height: 80%; }
+        .graph-bar:nth-child(2) { height: 60%; }
+        .graph-bar:nth-child(3) { height: 40%; background: #f59e0b; }
+        .graph-bar:nth-child(4) { height: 20%; background: #10b981; }
+        
+        .graph-text {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        .graph-text span:first-child {
+            color: #64748b;
+        }
+        
+        .graph-text span:last-child {
+            color: #3b82f6;
+        }
+        
+        /* Logo 4 - Circuit Path */
+        .logo-circuit {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .circuit-icon {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+        
+        .circuit-board {
+            width: 100%;
+            height: 100%;
+            background: #1e293b;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .circuit-path {
+            position: absolute;
+            background: #3b82f6;
+        }
+        
+        .circuit-path.horizontal {
+            height: 3px;
+            width: 70%;
+            top: 30%;
+            left: 15%;
+        }
+        
+        .circuit-path.vertical {
+            width: 3px;
+            height: 40%;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .circuit-path.diagonal {
+            width: 3px;
+            height: 30%;
+            background: #10b981;
+            top: 50%;
+            right: 20%;
+            transform: rotate(-45deg);
+            transform-origin: top;
+        }
+        
+        .circuit-node {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            border: 2px solid #3b82f6;
+        }
+        
+        .circuit-node:nth-child(5) { top: 30%; left: 15%; }
+        .circuit-node:nth-child(6) { top: 30%; left: 50%; transform: translateX(-50%); }
+        .circuit-node:nth-child(7) { bottom: 20%; right: 20%; }
+        
+        .circuit-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        /* Logo 5 - Minimal Wordmark */
+        .logo-minimal {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        .minimal-click {
+            color: #e5e7eb;
+        }
+        
+        .minimal-shift {
+            color: #3b82f6;
+            position: relative;
+        }
+        
+        .minimal-shift::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 2px;
+        }
+        
+        /* Logo 6 - Extension Badge */
+        .logo-extension-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .extension-badge {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+            border-radius: 14px;
+            position: relative;
+            box-shadow: 
+                0 4px 12px rgba(59, 130, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .extension-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: white;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7s2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7s2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+        
+        .extension-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e293b;
+        }
+        
+        /* Logo 7 - Monogram CS */
+        .logo-monogram {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .monogram-icon {
+            width: 56px;
+            height: 56px;
+            position: relative;
+        }
+        
+        .monogram-c {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 70%;
+            border: 4px solid #ef4444;
+            border-radius: 50%;
+            border-right: none;
+            opacity: 0.8;
+        }
+        
+        .monogram-s {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70%;
+            height: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3b82f6;
+        }
+        
+        .monogram-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        /* Logo 8 - Focus Brackets */
+        .logo-focus {
+            font-size: 2rem;
+            font-weight: 800;
+            position: relative;
+            padding: 0 1rem;
+            color: #1e293b;
+        }
+        
+        .focus-bracket {
+            position: absolute;
+            width: 12px;
+            height: 100%;
+            border: 3px solid #3b82f6;
+            top: 0;
+        }
+        
+        .focus-bracket.left {
+            left: 0;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .focus-bracket.right {
+            right: 0;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Logo 9 - Abstract Mark */
+        .logo-abstract {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .abstract-mark {
+            width: 56px;
+            height: 56px;
+            position: relative;
+        }
+        
+        .abstract-shape {
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .abstract-shape.outer {
+            width: 100%;
+            height: 100%;
+            background: #f3f4f6;
+            top: 0;
+            left: 0;
+        }
+        
+        .abstract-shape.middle {
+            width: 70%;
+            height: 70%;
+            background: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+            top: 15%;
+            left: 15%;
+            border-radius: 50% 0;
+            transform: rotate(45deg);
+        }
+        
+        .abstract-shape.inner {
+            width: 40%;
+            height: 40%;
+            background: #3b82f6;
+            top: 30%;
+            left: 30%;
+        }
+        
+        .abstract-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        /* Size Testing Section */
+        .size-test-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: #f8fbff;
+            border-radius: 20px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .size-test-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 3rem;
+        }
+        
+        .size-test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .size-test-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .size-test-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .size-large { transform: scale(1); }
+        .size-medium { transform: scale(0.7); }
+        .size-small { transform: scale(0.5); }
+        .size-tiny { transform: scale(0.3); }
+        
+        /* Variations Section */
+        .variations-section {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .variation-card {
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+        
+        .variation-light {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .variation-dark {
+            background: #1e293b;
+            border: 2px solid #334155;
+        }
+        
+        .variation-dark .logo-shift-arrow .shift-arrow-text,
+        .variation-dark .logo-graph .graph-text,
+        .variation-dark .logo-circuit .circuit-text,
+        .variation-dark .logo-extension-badge .extension-text,
+        .variation-dark .logo-monogram .monogram-text,
+        .variation-dark .logo-abstract .abstract-text,
+        .variation-dark .logo-bracket,
+        .variation-dark .logo-minimal,
+        .variation-dark .logo-focus {
+            color: #f8fafc;
+        }
+        
+        .variation-dark .logo-minimal .minimal-click {
+            color: #475569;
+        }
+        
+        .variation-dark .logo-minimal .minimal-shift {
+            color: #60a5fa;
+        }
+        
+        .variation-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .variation-dark .variation-label {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ClickShift Static Logo Concepts</h1>
+        <p class="tagline">Clean, scalable designs that work everywhere - from favicons to billboards</p>
+        
+        <div class="logo-grid">
+            <!-- Logo 1: Shift Arrow Mark -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-shift-arrow">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                </div>
+                <h3 class="logo-title">Shift Key Icon</h3>
+                <p class="logo-description">Clean shift arrow in a rounded square. Instantly recognizable, works at any size. The gradient blue represents transformation and efficiency.</p>
+            </div>
+            
+            <!-- Logo 2: Bracket Transform -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-bracket">
+                        <span class="bracket-left">{</span>
+                        <div class="bracket-content">
+                            <span class="bracket-click">click</span>
+                            <span class="bracket-shift">shift</span>
+                        </div>
+                        <span class="bracket-right">}</span>
+                    </div>
+                </div>
+                <h3 class="logo-title">Code Brackets</h3>
+                <p class="logo-description">Developer-friendly design with strikethrough on "click". Red bracket (problem) transforms to green (solution). Appeals to technical audience.</p>
+            </div>
+            
+            <!-- Logo 3: Efficiency Graph -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-graph">
+                        <div class="graph-icon">
+                            <div class="graph-chart">
+                                <div class="graph-bar"></div>
+                                <div class="graph-bar"></div>
+                                <div class="graph-bar"></div>
+                                <div class="graph-bar"></div>
+                            </div>
+                        </div>
+                        <div class="graph-text">
+                            <span>Click</span><span>Shift</span>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="logo-title">Efficiency Metrics</h3>
+                <p class="logo-description">Declining bar chart showing click reduction. Visual representation of your value prop - reducing complexity. Clean and data-driven.</p>
+            </div>
+            
+            <!-- Logo 4: Circuit Path -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-circuit">
+                        <div class="circuit-icon">
+                            <div class="circuit-board">
+                                <div class="circuit-path horizontal"></div>
+                                <div class="circuit-path vertical"></div>
+                                <div class="circuit-path diagonal"></div>
+                                <div class="circuit-node"></div>
+                                <div class="circuit-node"></div>
+                                <div class="circuit-node"></div>
+                            </div>
+                        </div>
+                        <div class="circuit-text">ClickShift</div>
+                    </div>
+                </div>
+                <h3 class="logo-title">Workflow Circuit</h3>
+                <p class="logo-description">Circuit board representing optimized workflow paths. Shows technical expertise and systematic approach. Modern tech aesthetic.</p>
+            </div>
+            
+            <!-- Logo 5: Minimal Wordmark -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-minimal">
+                        <span class="minimal-click">Click</span><span class="minimal-shift">Shift</span>
+                    </div>
+                </div>
+                <h3 class="logo-title">Minimal Wordmark</h3>
+                <p class="logo-description">Ultra-clean typography with subtle gradient underline. "Click" is grayed out showing it's being replaced. Premium and sophisticated.</p>
+            </div>
+            
+            <!-- Logo 6: Extension Badge -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-extension-badge">
+                        <div class="extension-badge"></div>
+                        <div class="extension-text">ClickShift</div>
+                    </div>
+                </div>
+                <h3 class="logo-title">Extension Badge</h3>
+                <p class="logo-description">Chrome extension puzzle piece in gradient blue. Immediately communicates what you build. Professional app icon aesthetic.</p>
+            </div>
+            
+            <!-- Logo 7: Monogram CS -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-monogram">
+                        <div class="monogram-icon">
+                            <div class="monogram-c"></div>
+                            <div class="monogram-s">S</div>
+                        </div>
+                        <div class="monogram-text">ClickShift</div>
+                    </div>
+                </div>
+                <h3 class="logo-title">CS Monogram</h3>
+                <p class="logo-description">Overlapping C and S creating depth. C (click) is incomplete/broken, S (shift) is bold and complete. Works great as standalone icon.</p>
+            </div>
+            
+            <!-- Logo 8: Focus Brackets -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-focus">
+                        <span class="focus-bracket left"></span>
+                        ClickShift
+                        <span class="focus-bracket right"></span>
+                    </div>
+                </div>
+                <h3 class="logo-title">Focus Brackets</h3>
+                <p class="logo-description">Square brackets representing focus and precision. Shows you zoom in on inefficiencies. Clean, technical, and scalable.</p>
+            </div>
+            
+            <!-- Logo 9: Abstract Mark -->
+            <div class="logo-card">
+                <div class="logo-display">
+                    <div class="logo-abstract">
+                        <div class="abstract-mark">
+                            <div class="abstract-shape outer"></div>
+                            <div class="abstract-shape middle"></div>
+                            <div class="abstract-shape inner"></div>
+                        </div>
+                        <div class="abstract-text">ClickShift</div>
+                    </div>
+                </div>
+                <h3 class="logo-title">Transform Mark</h3>
+                <p class="logo-description">Abstract shapes showing transformation from complex (outer) to simple (inner). Memorable mark that works at any size.</p>
+            </div>
+        </div>
+        
+        <!-- Size Testing -->
+        <div class="size-test-section">
+            <h2 class="size-test-title">Scalability Test - Shift Key Icon</h2>
+            <div class="size-test-grid">
+                <div class="size-test-item">
+                    <div class="size-test-label">Large (Header)</div>
+                    <div class="logo-shift-arrow size-large">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                </div>
+                
+                <div class="size-test-item">
+                    <div class="size-test-label">Medium (Nav)</div>
+                    <div class="logo-shift-arrow size-medium">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                </div>
+                
+                <div class="size-test-item">
+                    <div class="size-test-label">Small (Footer)</div>
+                    <div class="logo-shift-arrow size-small">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                </div>
+                
+                <div class="size-test-item">
+                    <div class="size-test-label">Tiny (Favicon)</div>
+                    <div class="logo-shift-arrow size-tiny">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Light/Dark Variations -->
+            <div class="variations-section">
+                <div class="variation-card variation-light">
+                    <div class="logo-shift-arrow">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                    <div class="variation-label">Light Background</div>
+                </div>
+                
+                <div class="variation-card variation-dark">
+                    <div class="logo-shift-arrow">
+                        <div class="shift-arrow-icon">
+                            <div class="arrow-box">
+                                <div class="arrow-symbol"></div>
+                            </div>
+                        </div>
+                        <div class="shift-arrow-text">ClickShift</div>
+                    </div>
+                    <div class="variation-label">Dark Background</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
